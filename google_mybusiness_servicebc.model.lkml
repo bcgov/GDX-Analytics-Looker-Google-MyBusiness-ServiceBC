@@ -9,4 +9,5 @@ include: "*.view"
 
 
 explore: locations {
+  sql_always_where: ${client} = 'servicebc' ;;
 }
