@@ -51,22 +51,22 @@ view: locations {
 ### DATE DIMENSIONS
 
 # location results are updated nightly; the latest data available from Google MyBusiness API is from two days ago.
-#   dimension_group: date {
-#     type: time
-#     timeframes: [
-#       raw,
-#       date,
-#       week,
-#       month,
+  dimension_group: date {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
 #       quarter,
-#       year
-#     ]
-#     convert_tz: no
-#     datatype: date
-#     sql: ${TABLE}.date ;;
-#     description: "The date for these location metrics, as provided by Google My Business."
-#     group_label:  "Date"
-#   }
+      year
+    ]
+    convert_tz: no
+    datatype: date
+    sql: ${TABLE}.date ;;
+    description: "The date for these location metrics, as provided by Google My Business."
+    group_label:  "Date"
+  }
 
 ## fields joined from servicebc.datedimension
   dimension: is_weekend {
@@ -101,12 +101,12 @@ view: locations {
   }
   dimension: fiscalquarter {
     type: number
-    sql: "Q" || ${TABLE}.fiscalquarter ;;
+    sql: ${TABLE}.fiscalquarter ;;
     group_label: "Date"
   }
   dimension: fiscal_quarter_of_year {
-    type:  date_fiscal_quarter_of_year
-    sql:  ${TABLE}.welcome_time ;;
+    type: string
+    sql:  "Q" || ${TABLE}.fiscalquarter ;;
     group_label:  "Date"
   }
 
