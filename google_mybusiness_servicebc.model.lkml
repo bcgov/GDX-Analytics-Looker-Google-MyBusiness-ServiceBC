@@ -11,6 +11,6 @@ include: "*.view"
 
 
 explore: locations {
-  group_label: "Service BC Locations"
+  label: "Service BC Locations"
   sql_always_where: ${client} = 'servicebc' ;;
 }
