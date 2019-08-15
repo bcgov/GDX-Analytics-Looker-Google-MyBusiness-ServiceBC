@@ -8,7 +8,10 @@ view: locations {
           dd.fiscalyear,
           dd.fiscalmonth,
           dd.fiscalquarter,
-          dd.sbcquarter
+          dd.sbcquarter,
+          dd.day,
+          dd.weekday,
+          dd.weekdayname
         FROM google.locations AS gl
         JOIN servicebc.datedimension AS dd
         ON gl.date::date = dd.datekey::date
@@ -66,6 +69,9 @@ view: locations {
     sql: ${TABLE}.date ;;
     description: "The date for these location metrics, as provided by Google My Business."
     group_label:  "Date"
+    # Setting the label to nothing supresses the dimension_groups name appearing before the timeframe in the field label
+    # Without this, labels on these timeframes will appear as "Date Date" and "Date Week", for example.
+    label: ""
   }
 
 ## fields joined from servicebc.datedimension
@@ -79,6 +85,16 @@ view: locations {
     sql:  ${TABLE}.isholiday ;;
     group_label:  "Date"
   }
+  dimension: day_of_week {
+    type:  string
+    sql:  ${TABLE}.weekdayname ;;
+    group_label:  "Date"
+  }
+  dimension: day_of_week_number {
+    type: number
+    sql: ${TABLE}.weekday ;;
+    group_label: "Date"
+  }
   dimension: sbc_quarter {
     type:  string
     sql:  ${TABLE}.sbcquarter ;;
@@ -89,17 +105,22 @@ view: locations {
     sql:  ${TABLE}.lastdayofpsapayperiod ;;
     group_label: "Date"
   }
-  dimension: fiscalyear {
+  dimension: day_of_month {
+    type: number
+    sql: ${TABLE}.day ;;
+    group_label: "Date"
+  }
+  dimension: fiscal_year {
     type: number
     sql: ${TABLE}.fiscalyear ;;
     group_label: "Date"
   }
-  dimension: fiscalmonth {
+  dimension: fiscal_month {
     type: number
     sql: ${TABLE}.fiscalmonth ;;
     group_label: "Date"
   }
-  dimension: fiscalquarter {
+  dimension: fiscal_quarter {
     type: number
     sql: ${TABLE}.fiscalquarter ;;
     group_label: "Date"
