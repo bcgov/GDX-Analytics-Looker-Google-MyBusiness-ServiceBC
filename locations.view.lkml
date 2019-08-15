@@ -1,6 +1,21 @@
 view: locations {
-  sql_table_name: google.locations ;;
-  label: "Google MyBusiness Locations"
+  derived_table: {
+    sql: SELECT
+          gl.*,
+          dd.isweekend::BOOLEAN,
+          dd.isholiday::BOOLEAN,
+          dd.lastdayofpsapayperiod::date,
+          dd.fiscalyear,
+          dd.fiscalmonth,
+          dd.fiscalquarter,
+          dd.sbcquarter
+        FROM google.locations AS gl
+        JOIN servicebc.datedimension AS dd
+        ON gl.date::date = dd.datekey::date
+        ;;
+  }
+  label: "Google MyBusiness Locations for Service BC"
+
 
 # 'client' is an internally defined short-name matching an account number to a client of GDX Analytics services
 # for example: 'servicebc' is a short-name for the account holder that contains the Service BC office locations
@@ -33,23 +48,67 @@ view: locations {
     description: "The location's real-world name."
   }
 
-# location results are updated nightly; the latest data available from Google MyBusiness API is from two days ago.
-  dimension_group: date {
-    type: time
-    timeframes: [
-      raw,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    convert_tz: no
-    datatype: date
-    sql: ${TABLE}.date ;;
-    description: "The date for these location metrics."
-  }
+### DATE DIMENSIONS
 
+# location results are updated nightly; the latest data available from Google MyBusiness API is from two days ago.
+#   dimension_group: date {
+#     type: time
+#     timeframes: [
+#       raw,
+#       date,
+#       week,
+#       month,
+#       quarter,
+#       year
+#     ]
+#     convert_tz: no
+#     datatype: date
+#     sql: ${TABLE}.date ;;
+#     description: "The date for these location metrics, as provided by Google My Business."
+#     group_label:  "Date"
+#   }
+
+## fields joined from servicebc.datedimension
+  dimension: is_weekend {
+    type:  yesno
+    sql:  ${TABLE}.isweekend ;;
+    group_label:  "Date"
+  }
+  dimension: is_holiday {
+    type:  yesno
+    sql:  ${TABLE}.isholiday ;;
+    group_label:  "Date"
+  }
+  dimension: sbc_quarter {
+    type:  string
+    sql:  ${TABLE}.sbcquarter ;;
+    group_label:  "Date"
+  }
+  dimension: last_day_of_pay_period {
+    type: date
+    sql:  ${TABLE}.lastdayofpsapayperiod ;;
+    group_label: "Date"
+  }
+  dimension: fiscalyear {
+    type: number
+    sql: ${TABLE}.fiscalyear ;;
+    group_label: "Date"
+  }
+  dimension: fiscalmonth {
+    type: number
+    sql: ${TABLE}.fiscalmonth ;;
+    group_label: "Date"
+  }
+  dimension: fiscalquarter {
+    type: number
+    sql: "Q" || ${TABLE}.fiscalquarter ;;
+    group_label: "Date"
+  }
+  dimension: fiscal_quarter_of_year {
+    type:  date_fiscal_quarter_of_year
+    sql:  ${TABLE}.welcome_time ;;
+    group_label:  "Date"
+  }
 
 ###
 # ROW MEASURES
