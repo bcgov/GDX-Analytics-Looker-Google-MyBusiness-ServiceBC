@@ -155,7 +155,7 @@ view: locations {
     type: sum
     sql: ${TABLE}.actions_driving_directions ;;
     group_label: "Counts"
-    label: "Driving Direction Requests"
+    label: "Driving Direction Requests Count"
     description: "The number of times driving directions were requested."
   }
 
@@ -163,7 +163,7 @@ view: locations {
     type: sum
     sql: ${TABLE}.actions_phone ;;
     group_label: "Counts"
-    label: "Phone Number Clicks"
+    label: "Phone Number Clicks Count"
     description: "The number of times the phone number was clicked."
   }
 
@@ -171,7 +171,7 @@ view: locations {
     type: sum
     sql: ${TABLE}.actions_website ;;
     group_label: "Counts"
-    label: "Website Clicks"
+    label: "Website Clicks Count"
     description: "The number of times the website was clicked."
   }
 
@@ -179,7 +179,7 @@ view: locations {
     type: sum
     sql: ${TABLE}.local_post_views_search ;;
     group_label: "Counts"
-    label: "Local Post Views"
+    label: "Local Post Views Count"
     description: "The number of times the local post was viewed on Google Search."
   }
 
@@ -187,7 +187,7 @@ view: locations {
     type: sum
     sql: ${TABLE}.photos_count_customers ;;
     group_label: "Counts"
-    label: "Customer Photos"
+    label: "Customer Photos Count"
     description: "The total number of (live) media items that have been uploaded by customers."
   }
 
@@ -195,7 +195,7 @@ view: locations {
     type: sum
     sql: ${TABLE}.photos_count_merchant ;;
     group_label: "Counts"
-    label: "Owner Photos"
+    label: "Owner Photos Count"
     description: "The total number of (live) media items that have been uploaded by the owner."
   }
 
@@ -203,7 +203,7 @@ view: locations {
     type: sum
     sql: ${TABLE}.photos_views_customers ;;
     group_label: "Counts"
-    label: "Customer Photo Views"
+    label: "Customer Photo Views Count"
     description: "The number of views on media items uploaded by customers."
   }
 
@@ -211,7 +211,7 @@ view: locations {
     type: sum
     sql: ${TABLE}.photos_views_merchant ;;
     group_label: "Counts"
-    label: "Owner Photo Views"
+    label: "Owner Photo Views Count"
     description: "The number of views on media items uploaded by the owner."
   }
 
@@ -219,7 +219,7 @@ view: locations {
     type: sum
     sql: ${TABLE}.queries_direct ;;
     group_label: "Counts"
-    label: "Shown in Direct Search"
+    label: "Shown in Direct Search Count"
     description: "The number of times the location was shown when searching for the location directly."
   }
 
@@ -227,7 +227,7 @@ view: locations {
     type: sum
     sql: ${TABLE}.queries_indirect ;;
     group_label: "Counts"
-    label: "Shown in Indirect Search"
+    label: "Shown in Indirect Search Count"
     description: "The number of times the location was shown as a result of a categorical search (for example, restaurant)summed over the row(s) which match the selected dimensions."
   }
 
@@ -235,7 +235,7 @@ view: locations {
     type: sum
     sql: ${TABLE}.views_maps ;;
     group_label: "Counts"
-    label: "Viewed on Google Maps"
+    label: "Views on Google Maps Count"
     description: "The number of times the location was viewed on Google Maps."
   }
 
@@ -243,7 +243,7 @@ view: locations {
     type: sum
     sql: ${TABLE}.views_search ;;
     group_label: "Counts"
-    label: "Viewed on Google Search"
+    label: "Views on Google Search Count"
     description: "The number of times the location was viewed on Google Search."
   }
 
@@ -254,7 +254,7 @@ view: locations {
     type: average
     sql: ${TABLE}.actions_driving_directions ;;
     group_label: "Averages"
-    label: "Driving Direction Requests"
+    label: "Driving Direction Requests Average"
     description: "The average number of times driving directions were requested."
   }
 
@@ -262,7 +262,7 @@ view: locations {
     type: average
     sql: ${TABLE}.actions_phone ;;
     group_label: "Averages"
-    label: "Phone Number Clicks"
+    label: "Phone Number Clicks Average"
     description: "The average number of times the phone number was clicked."
   }
 
@@ -270,7 +270,7 @@ view: locations {
     type: average
     sql: ${TABLE}.actions_website ;;
     group_label: "Averages"
-    label: "Website Clicks"
+    label: "Website Clicks Average"
     description: "The average number of times the website was clicked."
   }
 
@@ -278,7 +278,7 @@ view: locations {
     type: average
     sql: ${TABLE}.local_post_views_search ;;
     group_label: "Averages"
-    label: "Local Post Views"
+    label: "Local Post Views Average"
     description: "The average number of times the local post was viewed on Google Search."
   }
 
@@ -286,7 +286,7 @@ view: locations {
     type: average
     sql: ${TABLE}.photos_count_customers ;;
     group_label: "Averages"
-    label: "Customer Photos"
+    label: "Customer Photos Average"
     description: "The average number of (live) media items that have been uploaded by customers."
   }
 
@@ -294,7 +294,7 @@ view: locations {
     type: average
     sql: ${TABLE}.photos_count_merchant ;;
     group_label: "Averages"
-    label: "Owner Photos"
+    label: "Owner Photos Average"
     description: "The average number of (live) media items that have been uploaded by the owner."
   }
 
@@ -302,7 +302,7 @@ view: locations {
     type: average
     sql: ${TABLE}.photos_views_customers ;;
     group_label: "Averages"
-    label: "Customer Photo Views"
+    label: "Customer Photo Views Average"
     description: "The average number of views on media items uploaded by customers."
   }
 
@@ -310,7 +310,7 @@ view: locations {
     type: average
     sql: ${TABLE}.photos_views_merchant ;;
     group_label: "Averages"
-    label: "Owner Photo Views"
+    label: "Owner Photo Views Average"
     description: "The average number of views on media items uploaded by the owner."
   }
 
@@ -318,7 +318,7 @@ view: locations {
     type: average
     sql: ${TABLE}.queries_direct ;;
     group_label: "Averages"
-    label: "Shown in Direct Search"
+    label: "Shown in Direct Search Average"
     description: "The average number of times the location was shown when searching for the location directly."
   }
 
@@ -326,7 +326,7 @@ view: locations {
     type: average
     sql: ${TABLE}.queries_indirect ;;
     group_label: "Averages"
-    label: "Shown in Indirect Search"
+    label: "Shown in Indirect Search Average"
     description: "The average number of times the location was shown as a result of a categorical search (for example, restaurant)."
   }
 
@@ -334,7 +334,7 @@ view: locations {
     type: average
     sql: ${TABLE}.views_maps ;;
     group_label: "Averages"
-    label: "Viewed on Google Maps"
+    label: "Views on Google Maps Average"
     description: "The average number of times the location was viewed on Google Maps."
   }
 
@@ -342,7 +342,7 @@ view: locations {
     type: average
     sql: ${TABLE}.views_search ;;
     group_label: "Averages"
-    label: "Viewed on Google Search"
+    label: "Views on Google Search Average"
     description: "The average umber of times the location was viewed on Google Search."
   }
 }
