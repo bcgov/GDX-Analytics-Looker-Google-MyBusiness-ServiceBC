@@ -127,7 +127,7 @@ view: locations {
   }
   dimension: fiscal_quarter_of_year {
     type: string
-    sql:  "Q" || ${TABLE}.fiscalquarter ;;
+    sql:  'Q' || ${fiscal_quarter} ;;
     group_label:  "Date"
   }
 
