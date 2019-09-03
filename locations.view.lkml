@@ -34,7 +34,6 @@ view: locations {
 # The Google location identifier is in the format '/accounts/*/locations/*'
   dimension: location_id {
 #     hidden: yes
-    primary_key: yes
     type: string
     sql: ${TABLE}.location_id ;;
     label: "Google Location Identifier"
