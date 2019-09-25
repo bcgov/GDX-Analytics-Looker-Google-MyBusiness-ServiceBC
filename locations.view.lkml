@@ -2,10 +2,10 @@ view: locations {
   derived_table: {
     sql: SELECT
           gl.*,
-          oi.site AS office_site
+          oi.site AS office_site,
           oi.officesize AS office_size,
           oi.area AS area_number,
-          oi.id AS office_id
+          oi.id AS office_id,
           dd.isweekend::BOOLEAN,
           dd.isholiday::BOOLEAN,
           dd.lastdayofpsapayperiod::date,
