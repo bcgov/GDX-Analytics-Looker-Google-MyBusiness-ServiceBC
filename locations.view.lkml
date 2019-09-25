@@ -2,6 +2,10 @@ view: locations {
   derived_table: {
     sql: SELECT
           gl.*,
+          oi.site AS office_site
+          oi.officesize AS office_size,
+          oi.area AS area_number,
+          oi.id AS office_id
           dd.isweekend::BOOLEAN,
           dd.isholiday::BOOLEAN,
           dd.lastdayofpsapayperiod::date,
@@ -15,6 +19,8 @@ view: locations {
         FROM google.locations AS gl
         JOIN servicebc.datedimension AS dd
         ON gl.date::date = dd.datekey::date
+        LEFT JOIN servicebc.office_info AS oi
+        ON gl.location_id = oi.google_location_id
         ;;
   }
   label: "Google My Business Locations: Service BC"
@@ -47,10 +53,50 @@ view: locations {
   dimension: location {
     type: string
     sql: ${TABLE}.location ;;
-    label: "Location Name"
+    label: "Google Location Name"
     group_label: "Identifiers"
     description: "The location's real-world name."
   }
+
+### OFFICE INFO DIMENSIONS
+
+  # site comes from servicebc.office_info
+  dimension: office_site {
+    type:  string
+    sql:  ${TABLE}.office_site ;;
+    label: "Office Site Name"
+    group_label: "Office Info"
+    description: "The Service BC office site name."
+  }
+
+  dimension: office_size {
+    type:  string
+    sql:  ${TABLE}.office_size ;;
+    label: "Office Size"
+    group_label: "Office Info"
+    description: "The Service BC office size."
+  }
+
+  dimension: area_number {
+    type:  number
+    sql:  ${TABLE}.area_number ;;
+    label: "Office Area Number"
+    group_label: "Office Info"
+    description: "The Service BC office area number."
+  }
+
+  dimension: office_id {
+    type:  number
+    sql:  ${TABLE}.office_id ;;
+    label: "Office ID"
+    group_label: "Office Info"
+    description: "The Service BC office identifier."
+  }
+
+#   oi.site AS office_site
+#   oi.officesize AS office_size,
+#   oi.area AS area_number,
+#   oi.id AS office_id
 
 ### DATE DIMENSIONS
 
