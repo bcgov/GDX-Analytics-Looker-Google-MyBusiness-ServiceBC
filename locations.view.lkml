@@ -93,11 +93,6 @@ view: locations {
     description: "The Service BC office identifier."
   }
 
-#   oi.site AS office_site
-#   oi.officesize AS office_size,
-#   oi.area AS area_number,
-#   oi.id AS office_id
-
 ### DATE DIMENSIONS
 
 # location results are updated nightly; the latest data available from Google MyBusiness API is from two days ago.
