@@ -70,6 +70,15 @@ view: locations {
     description: "The Service BC office identifier."
   }
 
+  dimension: current_area {
+    type: string
+    sql:${TABLE}.current_area ;;
+    drill_fields: [ office_site ]
+    label: "Office Current Area"
+    group_label: "Office Info"
+    description: "The Service BC office current area."
+  }
+
 ### DATE DIMENSIONS
 
 # location results are updated nightly; the latest data available from Google MyBusiness API is from two days ago.
