@@ -7,7 +7,7 @@ fiscal_month_offset: 3
 label: "Google My Business"
 
 # include all views in this project
-include: "*.view"
+include: "/Views/*.view"
 
 
 explore: locations {
