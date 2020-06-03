@@ -4,7 +4,7 @@ GDX Analytics Looker project to integrate the Google MyBusiness API for Location
 
 ## Features
 
-Looker is a data vision tool that is used with Snowplow Analytics, it displays the data in dashboards that a user can customize.
+This Looker project provides views into the underlying database tables storing Service BC Location Insights from the Google MyBusiness API.
 
 ## Requirements
 
@@ -39,3 +39,4 @@ Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and limitations under the License.
+```
