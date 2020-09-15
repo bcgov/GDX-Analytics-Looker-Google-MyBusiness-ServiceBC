@@ -1,7 +1,14 @@
+include: "//snowplow_web_block/Includes/date_comparisons_common.view"
+
 view: locations {
   sql_table_name: google.google_mybusiness_servicebc_derived ;;
   label: "Google My Business Locations: Service BC"
 
+  extends: [date_comparisons_common]
+
+  dimension_group: filter_start {
+    sql: ${TABLE}.date  ;;
+  }
 
 # 'client' is an internally defined short-name matching an account number to a client of GDX Analytics services
 # for example: 'servicebc' is a short-name for the account holder that contains the Service BC office locations
