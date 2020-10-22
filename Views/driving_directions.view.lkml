@@ -146,56 +146,30 @@ view: driving_directions {
     description: "The region where these results relate to."
   }
 
-  ###
-  # MEASURES
-  ###
+  ### REGION COUNT DIMENSIONS
 
-  measure: dynamic_sum {
-    type: sum
-    sql: CASE
-          WHEN {% parameter days_to_aggregate %} = '7' THEN ${TABLE}.region_count_seven_days
-          WHEN {% parameter days_to_aggregate %} = '30' THEN ${TABLE}.region_count_thirty_days
-          WHEN {% parameter days_to_aggregate %} = '90' THEN ${TABLE}.region_count_ninety_days
-          ELSE NULL
-         END ;;
-    label: "Requests sum"
-    description: "The sum of requests from this region filtered on the Days Aggregated ."
-  }
-
-  measure: dynamic_average {
-    type: average
-    sql: CASE
-          WHEN {% parameter days_to_aggregate %} = '7' THEN ${TABLE}.region_count_seven_days
-          WHEN {% parameter days_to_aggregate %} = '30' THEN ${TABLE}.region_count_thirty_days
-          WHEN {% parameter days_to_aggregate %} = '90' THEN ${TABLE}.region_count_ninety_days
-          ELSE NULL
-         END ;;
-    label: "Requests average"
-    description: "The average of requests from this region filtered on the Days Aggregated ."
-  }
-
-  measure: region_count_seven_days {
-  #     hidden: yes
-    type: sum
+  dimension: region_count_seven_days {
+    type: number
     sql: ${TABLE}.region_count_seven_days ;;
     label: " 7 Day Count"
+    group_label: "Region Counts"
     description: "The count of requests from this region over 7 days since this query date."
   }
 
-  measure: region_count_thirty_days {
-  #     hidden: yes
-  type: sum
-  sql: ${TABLE}.region_count_thirty_days ;;
-  label: "30 Day Count"
-  description: "The count of requests from this region over 30 days since this query date."
+  dimension: region_count_thirty_days {
+    type: number
+    sql: ${TABLE}.region_count_thirty_days ;;
+    label: "30 Day Count"
+    group_label: "Region Counts"
+    description: "The count of requests from this region over 30 days since this query date."
   }
 
-  measure: region_count_ninety_days {
-  #     hidden: yes
-  type: sum
-  sql: ${TABLE}.region_count_ninety_days ;;
-  label: "90 Day Count"
-  description: "The count of requests from this region over 90 days since this query date."
+  dimension: region_count_ninety_days {
+    type: number
+    sql: ${TABLE}.region_count_ninety_days ;;
+    label: "90 Day Count"
+    group_label: "Region Counts"
+    description: "The count of requests from this region over 90 days since this query date."
   }
 
 ### OFFICE INFO DIMENSIONS
