@@ -48,6 +48,8 @@ view: driving_directions {
     description: "The aggregate results will be determined based on this UTC based query date."
   }
 
+# This parameter maps to the days_aggregated dimension from the Google data but
+# allows for easier filtering by restricted the allowed_values to only the valide values: 7, 30, or 90
   parameter: days_to_aggregate {
     type: unquoted
     allowed_value: {
@@ -62,7 +64,7 @@ view: driving_directions {
       label: "90"
       value: "90"
     }
-    description: "Days to Aggregate determines if the results you derive will be at the 7 day, 30 day, or 90 day scope on the UTC Query Date. It is a required filter."
+    description: "Days to Aggregate determines if the results you derive will be at the 7 day, 30 day, or 90 day scope on the UTC Query Date. Use as a filter when selecting a specific region count."
   }
 
   dimension: days_aggregated {
