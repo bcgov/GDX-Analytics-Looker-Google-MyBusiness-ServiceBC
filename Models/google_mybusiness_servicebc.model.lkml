@@ -18,9 +18,4 @@ explore: locations {
 explore: driving_directions {
   label: "Service BC Driving Directions"
   sql_always_where: ${client_shortname} = 'servicebc' ;;
-  always_filter: {
-    filters: {
-      field: days_to_aggregate
-    }
-  }
 }
