@@ -1,5 +1,8 @@
 # GDX Analytics Looker Google MyBusiness Service BC
 
+[![img](https://img.shields.io/badge/Lifecycle-Maturing-007EC6)](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)
+
+---
 GDX Analytics Looker project to integrate the Google MyBusiness API for Location Insights from Service BC locations
 
 ## Features
